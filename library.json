@@ -1,0 +1,42 @@
+[
+    {
+        "folder": "soundfont",
+        "fileName": "beedeokehive.sf2",
+        "url": "https://github.com/mkshtofficial/BeedeokeHive/releases/download/1.0.0/beedeokehive.sf2"
+    },
+    {
+        "folder": "bgv/Test",
+        "fileName": "m3.mp4",
+        "url": "https://github.com/mkshtofficial/BeedeokeHive/releases/download/1.0.0/m3.mp4"
+    },
+    {
+        "folder": "bgv/Nature",
+        "fileName": "v1.mp4",
+        "url": "https://github.com/mkshtofficial/BeedeokeHive/releases/download/1.0.0/1.mp4"
+    },
+    {
+        "folder": "bgphoto",
+        "fileName": "1.jpg",
+        "url": "https://github.com/mkshtofficial/BeedeokeHive/releases/download/1.0.0/1.jpg"
+    },
+    {
+        "folder": "bgphoto",
+        "fileName": "2.png",
+        "url": "https://github.com/mkshtofficial/BeedeokeHive/releases/download/1.0.0/2.png"
+    },
+    {
+        "folder": "bgphoto",
+        "fileName": "3.jpg",
+        "url": "https://github.com/mkshtofficial/BeedeokeHive/releases/download/1.0.0/3.jpg"
+    },
+    {
+        "folder": "idx",
+        "fileName": "bhiveidx",
+        "url": "https://github.com/mkshtofficial/BeedeokeHive/releases/download/1.0.0/bhiveidx"
+    },
+    {
+        "folder": "idx",
+        "fileName": "bhivepack",
+        "url": "https://github.com/mkshtofficial/BeedeokeHive/releases/download/1.0.0/bhivepack"
+    }
+]
