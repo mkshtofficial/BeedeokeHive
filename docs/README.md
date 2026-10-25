@@ -23,7 +23,7 @@ It automatically becomes a direct download when that release has an `.exe` asset
 whose name contains `setup` or `installer`. Android chooses the release's APK.
 GitHub API rate limits or failures leave the HTML fallback links working.
 
-The screenshot showcase uses seven fresh captures from the installed Android app.
+The screenshot showcase uses nine captures from the installed Android app.
 It advances every six seconds while visible, pauses on hover, keyboard focus, or
 a hidden tab, and includes pause/play, previous/next, dots, and arrow-key controls.
 Reduced-motion preferences disable automatic playback by default.
@@ -42,3 +42,6 @@ fallback. No analytics, activation keys, backend, or user-data collection is inc
 
 SmartLink has a direct APK fallback and latest-release discovery. Its section shows
 the connected Xiaomi remote and Song List screens; Song List is also slideshow slide 7.
+
+Web SmartLink has its own section, browser screenshots, local-network connection
+steps, and slideshow slides 8–9. It is served by the Hive player, not GitHub Pages.
