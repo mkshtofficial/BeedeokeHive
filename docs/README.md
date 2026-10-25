@@ -23,7 +23,7 @@ It automatically becomes a direct download when that release has an `.exe` asset
 whose name contains `setup` or `installer`. Android chooses the release's APK.
 GitHub API rate limits or failures leave the HTML fallback links working.
 
-The screenshot showcase uses six fresh captures from the installed Android app.
+The screenshot showcase uses seven fresh captures from the installed Android app.
 It advances every six seconds while visible, pauses on hover, keyboard focus, or
 a hidden tab, and includes pause/play, previous/next, dots, and arrow-key controls.
 Reduced-motion preferences disable automatic playback by default.
@@ -39,3 +39,6 @@ Local preview: run `python -m http.server 4173 --directory docs` from the reposi
 root, then visit http://localhost:4173/. Use relative asset paths so Pages works
 under the repository's URL path. Google Fonts is optional; system fonts are the
 fallback. No analytics, activation keys, backend, or user-data collection is included.
+
+SmartLink has a direct APK fallback and latest-release discovery. Its section shows
+both the actual remote and microphone screens; the mic is also slideshow slide 7.

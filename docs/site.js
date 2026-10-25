@@ -3,6 +3,7 @@
 // Each download works without JavaScript. Refresh the public release links when
 // GitHub is reachable; network errors/rate limits leave the verified fallbacks.
 const releases = {
+  smartlink: { repo: 'mkshtofficial/BeedeokeHive-SmartLink', asset: /\.apk$/i },
   android: { repo: 'mkshtofficial/BeedeokeHive-Android', asset: /\.apk$/i },
   windows: { repo: 'mkshtofficial/BeedeokeHive-Windows', asset: /(?:setup|installer).*\.exe$/i },
 };
