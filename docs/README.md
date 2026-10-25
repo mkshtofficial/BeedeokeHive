@@ -23,10 +23,13 @@ It automatically becomes a direct download when that release has an `.exe` asset
 whose name contains `setup` or `installer`. Android chooses the release's APK.
 GitHub API rate limits or failures leave the HTML fallback links working.
 
-The screenshot showcase uses four fresh captures from the installed Android app.
+The screenshot showcase uses six fresh captures from the installed Android app.
 It advances every six seconds while visible, pauses on hover, keyboard focus, or
 a hidden tab, and includes pause/play, previous/next, dots, and arrow-key controls.
 Reduced-motion preferences disable automatic playback by default.
+
+Main menu assets use new filenames to avoid old cached screenshots. Portrait main
+menu and in-KTV song search preserve the complete image and link to full-size captures.
 
 The screenshot showcase shows Android, and the phone image shows SmartLink Android.
 Do not label those screenshots as Windows. Feature text distinguishes Android PiP
