@@ -41,4 +41,4 @@ under the repository's URL path. Google Fonts is optional; system fonts are the
 fallback. No analytics, activation keys, backend, or user-data collection is included.
 
 SmartLink has a direct APK fallback and latest-release discovery. Its section shows
-both the actual remote and microphone screens; the mic is also slideshow slide 7.
+the connected Xiaomi remote and Song List screens; Song List is also slideshow slide 7.
