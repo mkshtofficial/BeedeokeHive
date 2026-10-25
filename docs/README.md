@@ -15,13 +15,18 @@ Expected URL: https://mkshtofficial.github.io/BeedeokeHive/
 
 - `index.html`: text, default release versions, download fallback links, FAQ.
 - `styles.css`: responsive layout, colors, typography, and reduced-motion support.
-- `site.js`: accessible screenshot tabs and latest-release download discovery.
+- `site.js`: accessible screenshot slideshow and latest-release download discovery.
 - `assets/`: existing Hive artwork and actual Android/SmartLink screenshots.
 
 The Windows button opens the latest public release when no installer is attached.
 It automatically becomes a direct download when that release has an `.exe` asset
 whose name contains `setup` or `installer`. Android chooses the release's APK.
 GitHub API rate limits or failures leave the HTML fallback links working.
+
+The screenshot showcase uses four fresh captures from the installed Android app.
+It advances every six seconds while visible, pauses on hover, keyboard focus, or
+a hidden tab, and includes pause/play, previous/next, dots, and arrow-key controls.
+Reduced-motion preferences disable automatic playback by default.
 
 The screenshot showcase shows Android, and the phone image shows SmartLink Android.
 Do not label those screenshots as Windows. Feature text distinguishes Android PiP

@@ -37,26 +37,58 @@ async function refreshRelease(platform, config) {
   } catch { /* Static download links remain usable. */ }
 }
 
-const tabs = [...document.querySelectorAll('[role="tab"]')];
-function selectTab(tab, focus = false) {
-  for (const item of tabs) {
-    const active = item === tab;
-    item.setAttribute('aria-selected', String(active));
-    item.tabIndex = active ? 0 : -1;
-    document.getElementById(item.getAttribute('aria-controls')).hidden = !active;
+const showcase = document.getElementById('showcase');
+const slides = [...showcase.querySelectorAll('.showcase-slide')];
+const dots = [...showcase.querySelectorAll('[data-slide]')];
+const toggle = document.getElementById('slideshow-toggle');
+const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+let index = 0;
+let paused = reducedMotion.matches;
+let hovering = false;
+let focused = false;
+let visible = false;
+let timer;
+
+function updateTimer() {
+  clearInterval(timer);
+  if (!paused && !hovering && !focused && visible && !document.hidden) {
+    timer = setInterval(() => showSlide(index + 1), 6000);
   }
-  if (focus) tab.focus();
 }
-tabs.forEach((tab, index) => {
-  tab.addEventListener('click', () => selectTab(tab));
-  tab.addEventListener('keydown', event => {
-    let next;
-    if (event.key === 'ArrowRight') next = (index + 1) % tabs.length;
-    if (event.key === 'ArrowLeft') next = (index - 1 + tabs.length) % tabs.length;
-    if (event.key === 'Home') next = 0;
-    if (event.key === 'End') next = tabs.length - 1;
-    if (next !== undefined) { event.preventDefault(); selectTab(tabs[next], true); }
-  });
+function showSlide(next, announce = false) {
+  index = (next + slides.length) % slides.length;
+  slides.forEach((slide, position) => { slide.hidden = position !== index; });
+  dots.forEach((dot, position) => dot.setAttribute('aria-pressed', String(position === index)));
+  document.getElementById('slide-count').textContent = `${String(index + 1).padStart(2, '0')} / ${String(slides.length).padStart(2, '0')}`;
+  if (announce) document.getElementById('slide-announcement').textContent = slides[index].getAttribute('aria-label');
+}
+function updateToggle() {
+  toggle.setAttribute('aria-label', paused ? 'Play slideshow' : 'Pause slideshow');
+  toggle.innerHTML = paused ? 'Play slideshow <span aria-hidden="true">▷</span>' : 'Pause slideshow <span aria-hidden="true">Ⅱ</span>';
+}
+function manualSlide(next) { showSlide(next, true); updateTimer(); }
+document.getElementById('slide-prev').addEventListener('click', () => manualSlide(index - 1));
+document.getElementById('slide-next').addEventListener('click', () => manualSlide(index + 1));
+dots.forEach(dot => dot.addEventListener('click', () => manualSlide(Number(dot.dataset.slide))));
+toggle.addEventListener('click', () => { paused = !paused; updateToggle(); updateTimer(); });
+showcase.addEventListener('mouseenter', () => { hovering = true; updateTimer(); });
+showcase.addEventListener('mouseleave', () => { hovering = false; updateTimer(); });
+showcase.addEventListener('focusin', () => { focused = true; updateTimer(); });
+showcase.addEventListener('focusout', event => { focused = showcase.contains(event.relatedTarget); updateTimer(); });
+showcase.addEventListener('keydown', event => {
+  if (event.key === 'ArrowRight' || event.key === 'ArrowLeft') {
+    event.preventDefault(); manualSlide(index + (event.key === 'ArrowRight' ? 1 : -1));
+  }
 });
+document.addEventListener('visibilitychange', updateTimer);
+reducedMotion.addEventListener('change', event => {
+  if (event.matches) { paused = true; updateToggle(); updateTimer(); }
+});
+if ('IntersectionObserver' in window) {
+  new IntersectionObserver(entries => { visible = entries[0].isIntersecting; updateTimer(); }, { threshold: 0.25 }).observe(showcase);
+} else { visible = true; }
+showcase.querySelector('.slideshow-tools').hidden = false;
+showcase.querySelector('.slide-dots').hidden = false;
+updateToggle(); updateTimer();
 document.getElementById('year').textContent = new Date().getFullYear();
 for (const [platform, config] of Object.entries(releases)) void refreshRelease(platform, config);
