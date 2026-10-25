@@ -40,8 +40,7 @@ root, then visit http://localhost:4173/. Use relative asset paths so Pages works
 under the repository's URL path. Google Fonts is optional; system fonts are the
 fallback. No analytics, activation keys, backend, or user-data collection is included.
 
-SmartLink has a direct APK fallback and latest-release discovery. Its section shows
-the connected Xiaomi remote and Song List screens; Song List is also slideshow slide 7.
+SmartLink has a direct APK fallback and latest-release discovery.
 
 Web SmartLink has its own section, browser screenshots, local-network connection
 steps, and slideshow slides 8–9. It is served by the Hive player, not GitHub Pages.
